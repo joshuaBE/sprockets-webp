@@ -8,7 +8,7 @@ module Sprockets
           env.register_transformer 'image/jpeg', 'image/webp', Converter
           env.register_postprocessor 'image/jpeg', Converter.new(app: app)
 
-          env.register_mime_type 'image/png', '.png'
+          env.register_mime_type 'image/png', extensions: ['.png']
           env.register_transformer 'image/png', 'image/webp', Converter
           env.register_postprocessor 'image/png', Converter.new(app: app)
         end
