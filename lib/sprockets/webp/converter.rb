@@ -42,8 +42,8 @@ module Sprockets
       def webp_file_by_config(config, data)
         digest    = config.digest ? "-#{context.environment.digest_class.new.update(data).to_s}" : nil
         file_name = context.logical_path # Original File name w/o extension
-        file_ext  = context.pathname.extname # Original File extension
-        full_file_name = context.pathname.to_path
+        file_ext  = ".#{context.filename.split('.').last}" # Original File extension
+        full_file_name = context.filename
 
         "#{file_name}#{digest}#{dimensions(full_file_name)}#{file_ext}.webp" # WebP File fullname
       end
